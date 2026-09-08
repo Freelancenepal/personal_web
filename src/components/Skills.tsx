@@ -1,78 +1,47 @@
 import { motion } from 'framer-motion';
 
 const skills = [
-  {
-    category: 'Frontend',
-    color: 'from-violet-500 to-purple-600',
-    items: ['React', 'TypeScript', 'Next.js', 'Tailwind CSS', 'Framer Motion', 'Vue.js'],
-  },
-  {
-    category: 'Backend',
-    color: 'from-indigo-500 to-blue-600',
-    items: ['Node.js', 'Python', 'PostgreSQL', 'MongoDB', 'GraphQL', 'REST APIs'],
-  },
-  {
-    category: 'Design',
-    color: 'from-pink-500 to-rose-600',
-    items: ['Figma', 'UI/UX Design', 'Prototyping', 'Design Systems', 'Animation', 'Branding'],
-  },
-  {
-    category: 'Tools',
-    color: 'from-amber-500 to-orange-600',
-    items: ['Git', 'Docker', 'AWS', 'CI/CD', 'Vercel', 'Linux'],
-  },
+  'React', 'TypeScript', 'Next.js', 'Node.js', 'Python', 'PostgreSQL',
+  'MongoDB', 'GraphQL', 'REST APIs', 'AWS', 'Docker', 'Kubernetes',
+  'CI/CD', 'Tailwind CSS', 'Figma', 'Git', 'Linux', 'Vercel'
 ];
 
 export default function Skills() {
   return (
-    <section id="skills" className="py-24 md:py-32 bg-gradient-to-b from-gray-50 to-white relative">
+    <section id="skills" className="py-24 md:py-32 relative">
       <div className="max-w-6xl mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-100px' }}
           transition={{ duration: 0.7 }}
-          className="text-center mb-16"
+          className="mb-16"
         >
-          <span className="text-sm font-semibold text-violet-600 uppercase tracking-wider">Skills</span>
-          <h2 className="mt-3 text-4xl md:text-5xl font-bold text-gray-900">
-            My{' '}
-            <span className="bg-gradient-to-r from-violet-600 to-indigo-600 bg-clip-text text-transparent">
-              toolkit
-            </span>
-          </h2>
-          <p className="mt-4 text-gray-600 max-w-xl mx-auto">
-            Technologies and tools I use to bring products to life
-          </p>
+          <span className="text-sm font-medium text-gray-500 uppercase tracking-wider">
+            Core stack
+          </span>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.7, delay: 0.2 }}
+          className="flex flex-wrap gap-3"
+        >
           {skills.map((skill, i) => (
             <motion.div
-              key={skill.category}
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              key={skill}
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: i * 0.1 }}
-              className="group relative bg-white rounded-3xl p-6 shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 hover:border-violet-100 hover:-translate-y-2"
+              transition={{ duration: 0.3, delay: i * 0.03 }}
+              className="px-5 py-2.5 bg-white/[0.03] border border-white/10 rounded-full text-sm text-gray-300 hover:bg-white/[0.06] hover:border-white/20 hover:text-white transition-all cursor-default"
             >
-              <div className={`inline-flex px-3 py-1 rounded-full text-xs font-semibold text-white bg-gradient-to-r ${skill.color} mb-4`}>
-                {skill.category}
-              </div>
-              <ul className="space-y-2">
-                {skill.items.map((item) => (
-                  <li
-                    key={item}
-                    className="flex items-center gap-2 text-gray-600 text-sm group-hover:text-gray-800 transition-colors"
-                  >
-                    <span className={`w-1.5 h-1.5 rounded-full bg-gradient-to-r ${skill.color} opacity-60`} />
-                    {item}
-                  </li>
-                ))}
-              </ul>
+              {skill}
             </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

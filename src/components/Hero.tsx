@@ -1,5 +1,4 @@
 import { motion } from 'framer-motion';
-import { ArrowDown, Sparkles } from 'lucide-react';
 
 export default function Hero() {
   return (
@@ -7,86 +6,88 @@ export default function Hero() {
       id="home"
       className="relative min-h-screen flex items-center justify-center overflow-hidden"
     >
-      {/* Animated Background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-slate-50 via-violet-50 to-indigo-50" />
-      <div className="absolute inset-0">
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-violet-300/30 rounded-full blur-3xl animate-pulse" />
-        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-indigo-300/30 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-pink-200/20 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '2s' }} />
-      </div>
-
-      {/* Grid Pattern */}
-      <div className="absolute inset-0 opacity-[0.03]" style={{
-        backgroundImage: 'radial-gradient(circle, #6d28d9 1px, transparent 1px)',
-        backgroundSize: '40px 40px'
+      {/* Subtle gradient background */}
+      <div className="absolute inset-0 bg-gradient-to-b from-black via-[#0a0a0a] to-[#0a0a0a]" />
+      
+      {/* Subtle grid pattern */}
+      <div className="absolute inset-0 opacity-[0.02]" style={{
+        backgroundImage: 'radial-gradient(circle, #fff 1px, transparent 1px)',
+        backgroundSize: '50px 50px'
       }} />
 
-      <div className="relative z-10 text-center px-6 max-w-4xl mx-auto">
+      <div className="relative z-10 text-center px-6 max-w-5xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="inline-flex items-center gap-2 px-4 py-2 bg-white/60 backdrop-blur-sm border border-violet-200 rounded-full text-sm text-violet-700 font-medium mb-8"
+          className="mb-8"
         >
-          <Sparkles size={14} className="text-violet-500" />
-          Available for freelance work
+          <span className="text-sm font-medium text-gray-500 uppercase tracking-wider">
+            Lead mobile + full-stack engineering
+          </span>
         </motion.div>
 
         <motion.h1
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
-          className="text-5xl md:text-7xl lg:text-8xl font-bold text-gray-900 leading-tight"
+          className="text-5xl md:text-7xl lg:text-8xl font-bold text-white leading-tight mb-8"
         >
-          Hi, I'm{' '}
-          <span className="bg-gradient-to-r from-violet-600 via-purple-600 to-indigo-600 bg-clip-text text-transparent">
-            Alex Chen
-          </span>
+          Production apps,
+          <br />
+          <span className="text-gray-400">led like systems.</span>
         </motion.h1>
 
         <motion.p
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.6 }}
-          className="mt-6 text-lg md:text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed"
+          className="text-lg md:text-xl text-gray-400 max-w-3xl mx-auto leading-relaxed mb-12"
         >
-          A creative developer crafting beautiful digital experiences. I design and build
-          websites that are fast, accessible, and delightful to use.
+          Lead Software Engineer and Engineering Manager specializing in React, TypeScript, 
+          Node.js, cloud architecture, fintech products, and scalable delivery.
         </motion.p>
 
+        {/* Stats */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.8 }}
-          className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4"
+          className="flex flex-wrap justify-center gap-8 md:gap-16 mb-12"
         >
-          <a
-            href="#projects"
-            className="px-8 py-4 bg-gradient-to-r from-violet-600 to-indigo-600 text-white font-semibold rounded-full hover:shadow-xl hover:shadow-violet-500/25 transition-all hover:-translate-y-1"
-          >
-            View My Work
-          </a>
-          <a
-            href="#about"
-            className="px-8 py-4 bg-white/70 backdrop-blur-sm border border-gray-200 text-gray-700 font-semibold rounded-full hover:bg-white hover:shadow-lg transition-all hover:-translate-y-1"
-          >
-            Learn More
-          </a>
+          <div className="text-center">
+            <div className="text-4xl md:text-5xl font-bold text-white mb-2">8+</div>
+            <div className="text-sm text-gray-500">years shipping production software</div>
+          </div>
+          <div className="text-center">
+            <div className="text-4xl md:text-5xl font-bold text-white mb-2">3</div>
+            <div className="text-sm text-gray-500">platforms: web, mobile, backend</div>
+          </div>
+          <div className="text-center">
+            <div className="text-4xl md:text-5xl font-bold text-white mb-2">24/7</div>
+            <div className="text-sm text-gray-500">mindset for reliability and support</div>
+          </div>
         </motion.div>
 
-        {/* Scroll Indicator */}
+        {/* CTAs */}
         <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1.5 }}
-          className="absolute bottom-10 left-1/2 -translate-x-1/2"
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 1 }}
+          className="flex flex-col sm:flex-row items-center justify-center gap-4"
         >
-          <motion.div
-            animate={{ y: [0, 10, 0] }}
-            transition={{ repeat: Infinity, duration: 2 }}
+          <a
+            href="#contact"
+            className="px-8 py-4 bg-white text-black font-semibold rounded-full hover:bg-gray-200 transition-all"
           >
-            <ArrowDown size={20} className="text-gray-400" />
-          </motion.div>
+            Start a conversation
+          </a>
+          <a
+            href="#projects"
+            className="px-8 py-4 border border-white/20 text-white font-semibold rounded-full hover:bg-white/5 transition-all"
+          >
+            View my work
+          </a>
         </motion.div>
       </div>
     </section>
